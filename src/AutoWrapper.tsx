@@ -65,13 +65,16 @@ class AutoWrapperComponent extends React.PureComponent<Props> {
     }
 }
 
-export const AutoWrapper = (props: Props & React.Props<any>) => <Consumer>
-    { 
-        (configuration) => <AutoWrapperComponent
-            configuration={configuration}
-            {...props}
-        />
-    }
-</Consumer>;
+export function AutoWrapper(props: Props & React.Props<any>) {
+
+    return <Consumer>
+        { 
+            (configuration) => <AutoWrapperComponent
+                {...props}
+                configuration={configuration}
+            />
+        }
+    </Consumer>;
+}
 
 export const AutoWrapperProvider = Provider;
