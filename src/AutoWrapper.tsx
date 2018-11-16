@@ -10,7 +10,7 @@ interface Props {
     configuration?: AutoWrapperConfiguration;
 }
 
-class AutoWrapperComponent extends React.PureComponent<Props> {
+class AutoWrapperComponent extends React.Component<Props> {
 
     public static defaultProps: Props = {
 
@@ -53,8 +53,7 @@ class AutoWrapperComponent extends React.PureComponent<Props> {
                     />,
                     React.cloneElement(
                         childElement,
-                        {
-                        },
+                        {},
                         this.renderChildren(childElement.props.children)
                     )
                 )
