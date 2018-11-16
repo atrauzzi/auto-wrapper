@@ -21,11 +21,7 @@ class AutoWrapperComponent extends React.PureComponent<Props> {
 
     public render() {
 
-        return <Provider value={this.props.configuration}>
-
-            { this.renderChildren(this.props.children) }
-
-        </Provider>;
+        return this.renderChildren(this.props.children);
     }
 
     private renderChildren(children: React.ReactNode): React.ReactNode {
@@ -48,10 +44,10 @@ class AutoWrapperComponent extends React.PureComponent<Props> {
             const childElement = child as React.ReactElement<React.Props<any>>;
 
             return _.chain(this.props.configuration.wrappers)
-                .filter((wrapper) => wrapper.type === child.type)
+                .filter((wrapper: React.ReactElement<any>) => wrapper.type === child.type)
                 .flatMap("with")
                 .reverse()
-                .reduce((previousElement, CurrentWrapper) =>
+                .reduce((previousElement: React.ReactElement<any>, CurrentWrapper: React.ReactType) =>
                     <CurrentWrapper
                         children={previousElement}
                     />,
