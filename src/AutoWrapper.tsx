@@ -7,7 +7,7 @@ const { Provider, Consumer } = React.createContext<AutoWrapperConfiguration>(nul
 
 interface Props {
 
-    configuration?: AutoWrapperConfiguration;
+    configuration?: AutoWrapperConfiguration | null;
 }
 
 class AutoWrapperComponent extends React.Component<Props> {
