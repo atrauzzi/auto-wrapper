@@ -3,7 +3,7 @@ import React from "react";
 import { AutoWrapperConfiguration } from "./AutoWrapperConfiguration";
 
 
-const { Provider, Consumer } = React.createContext<AutoWrapperConfiguration>(null);
+const { Provider, Consumer } = React.createContext<AutoWrapperConfiguration | null>(null);
 
 interface Props {
 
